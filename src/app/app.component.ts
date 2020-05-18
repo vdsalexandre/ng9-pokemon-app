@@ -10,6 +10,7 @@ import { POKEMONS } from './mock-pokemons';
 })
 export class AppComponent implements OnInit {
     private pokemons: Pokemon[];
+    private dateFormat: string = "dd/MM/yyyy";
 
     ngOnInit(): void {
         this.pokemons = POKEMONS;
