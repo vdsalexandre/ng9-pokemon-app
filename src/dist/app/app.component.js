@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var mock_pokemons_1 = require("./mock-pokemons");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.value = '';
     }
     AppComponent.prototype.ngOnInit = function () {
         this.pokemons = mock_pokemons_1.POKEMONS;
@@ -17,10 +18,13 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.selectPokemon = function (pokemon) {
         alert("vous avez cliqu\u00E9 sur " + pokemon.name);
     };
+    AppComponent.prototype.onKey = function (value) {
+        this.value = "Bonjour " + value;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-app',
-            template: "<h1>Liste de pok\u00E9mons</h1>",
+            templateUrl: './app/app.component.html',
         })
     ], AppComponent);
     return AppComponent;
