@@ -7,6 +7,7 @@ import { ListPokemonComponent } from './list-pokemon.component';
 import { DetailPokemonComponent } from './detail-pokemon.component';
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
+import { PokemonsService } from './pokemons.service';
   
 @NgModule({
     imports: [
@@ -19,6 +20,6 @@ import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
         BorderCardDirective,
         PokemonTypeColorPipe
     ],
-    providers: [] // déclarer des services propres à ce module
+    providers: [PokemonsService] // déclarer des services propres à ce module
 })
 export class PokemonsModule { }
