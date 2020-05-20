@@ -7,6 +7,7 @@ import { PokemonsService } from './pokemons.service';
 @Component({
     selector: 'detail-pokemon',
     templateUrl: './app/pokemons/detail-pokemon.component.html',
+    styles: ['.card-action a { cursor: pointer; }']
 })
 export class DetailPokemonComponent implements OnInit {
     pokemon: Pokemon = null;
