@@ -20,7 +20,8 @@ export class DetailPokemonComponent implements OnInit {
     ngOnInit(): void {
         let id = +this.route.snapshot.paramMap.get('id'); // snapshot --> synchrone, l'appli est bloquée tant qu'on a pas recup le param
         console.log("detail component: id = " + id);
-        this.pokemon = this.pokemonsService.getPokemon(id);
+        this.pokemonsService.getPokemon(id)
+            .subscribe(pokemon => this.pokemon = pokemon);
     }
   
     goBack(): void {
