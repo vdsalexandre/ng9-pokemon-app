@@ -32,4 +32,9 @@ export class DetailPokemonComponent implements OnInit {
         let link = ['/pokemon/edit', pokemon.id];
         this.router.navigate(link);
     }
+
+    delete(pokemon: Pokemon): void {
+        this.pokemonsService.deletePokemon(pokemon)
+            .subscribe(_ => this.goBack());
+    }
 }
