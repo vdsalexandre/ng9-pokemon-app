@@ -15,6 +15,7 @@ import { PokemonsService } from './pokemons.service';
 import { PokemonSearchComponent } from './search-pokemon.component';
 
 import { LoaderComponent } from '../loader.component';
+import { AuthGuard } from '../auth-guard.service';
   
 @NgModule({
     imports: [
@@ -32,6 +33,6 @@ import { LoaderComponent } from '../loader.component';
         BorderCardDirective,
         PokemonTypeColorPipe
     ],
-    providers: [PokemonsService] // déclarer des services propres à ce module
+    providers: [PokemonsService, AuthGuard] // déclarer des services propres à ce module
 })
 export class PokemonsModule { }
