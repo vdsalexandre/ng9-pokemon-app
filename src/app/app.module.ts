@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -28,6 +28,9 @@ import { LoginRoutingModule } from './login-routing.module';
     AppComponent,
     LoginComponent,
     PageNotFoundComponent
+  ],
+  providers: [
+    Title // service title fourni à l'ensemble de l'app
   ],
   bootstrap: [ AppComponent ] // component racine (au lancement de l'application)
 })

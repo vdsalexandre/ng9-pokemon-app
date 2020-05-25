@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { Pokemon } from './pokemon';
 import { PokemonsService } from './pokemons.service';
@@ -15,13 +16,17 @@ export class DetailPokemonComponent implements OnInit {
     constructor(
         private route: ActivatedRoute, 
         private router: Router, 
-        private pokemonsService: PokemonsService) {}
+        private pokemonsService: PokemonsService,
+        private titleService: Title) {}
   
     ngOnInit(): void {
         let id = +this.route.snapshot.paramMap.get('id'); // snapshot --> synchrone, l'appli est bloquée tant qu'on a pas recup le param
         console.log("detail component: id = " + id);
         this.pokemonsService.getPokemon(id)
-            .subscribe(pokemon => this.pokemon = pokemon);
+            .subscribe(pokemon => {
+                this.pokemon = pokemon; 
+                this.setTitlePage();
+            });
     }
   
     goBack(): void {
@@ -36,5 +41,10 @@ export class DetailPokemonComponent implements OnInit {
     delete(pokemon: Pokemon): void {
         this.pokemonsService.deletePokemon(pokemon)
             .subscribe(_ => this.goBack());
+    }
+
+    private setTitlePage(): void {
+        let currentTitle = this.titleService.getTitle();
+        this.titleService.setTitle(`${currentTitle} - ${this.pokemon.name}`);
     }
 }
